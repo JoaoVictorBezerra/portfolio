@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  background: rgb(28, 33, 40);
+  background: linear-gradient(
+    90deg,
+    rgba(28, 33, 40, 1) 0%,
+    rgba(46, 79, 142, 1) 100%
+  );
+  /* background: #1C2227;
+    background: radial-gradient(at left top, #1C2227, #2D5695); */
+  /* font-family: 'Fira Sans', sans-serif; */
+  font-family: "Poppins", sans-serif;
+}
+
+/*RESET*/
+a,
+a:hover,
+a:after {
+  text-decoration: none;
+  color: inherit;
+}
