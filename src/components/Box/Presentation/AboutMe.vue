@@ -30,7 +30,7 @@
 
 </script>
 <style scoped lang="scss">
-@import '@/assets/styles/variables.scss';
+@import '@/assets/styles/_Variables.scss';
 $selector-color: #d4b87b;
 $property-color: #9cdcfe;
 $declaration-color: #b5cea8;
@@ -43,14 +43,15 @@ $font-color: #ffffff;
 
 p {
   margin: 0;
-  font-size: 12px;
+  font-size: $extra-small;
 }
+
 .css__selector {
   color: $selector-color;
 }
 .css__property {
   color: $property-color;
-  margin: 0px 0px 0px 15px;
+  margin-left: 1rem;
 }
 .css__declaration {
   color: $declaration-color;

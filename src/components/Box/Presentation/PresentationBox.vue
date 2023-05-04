@@ -1,11 +1,11 @@
 <template>
-  <div class="box box-dark" role="alert">
+  <div class="box" role="alert">
     <div class="box__navbar">
-      <NavbarIcons class="box__navbar__icons" />
+      <AppleIcons class="box__navbar__icons" />
       <div class="box__tabs">
         <div class="box__tabs__list">
           <button
-            @click="aboutMeToggle()"
+            @click="selectedOption()"
             class="box__tab"
             :class="{ clicked: aboutMe }"
           >
@@ -13,7 +13,7 @@
             <p>Sobre_mim.css</p>
           </button>
           <button
-            @click="educationToggle()"
+            @click="selectedOption()"
             class="box__tab"
             :class="{ clicked: education }"
           >
@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="box__navbar__box__url">
-        <p class="box__navbar__url">www.joaovictor.com.br/{{ tabSelected }}</p>
+        <p class="box__navbar__url">{{ url + tabSelected }}</p>
       </div>
     </div>
     <div class="box__experiences">
@@ -32,34 +32,12 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-// Vue
-import { ref } from "vue";
-// Components
-import NavbarIcons from "@/components/Box/NavbarIcons.vue";
-import AboutMe from "@/components/Box/Languages/AboutMe.vue";
-import Education from "@/components/Box/Languages/Education.vue";
 
-const aboutMe = ref<Boolean>(true);
-const education = ref<Boolean>(false);
-const tabSelected = ref<String>("sobre-mim");
-
-function aboutMeToggle(): void {
-  education.value = false;
-  aboutMe.value = true;
-  tabSelected.value = "sobre-mim";
-}
-function educationToggle(): void {
-  education.value = true;
-  aboutMe.value = false;
-  tabSelected.value = "educação";
-}
-</script>
 <style scoped lang="scss">
-@import "@/assets/styles/variables.scss";
+@import "@/assets/styles/_Variables.scss";
 
 // Colors
-$box-background: #1e1e1e;
+$box-background-color: #1e1e1e;
 $box-border: #4a4a4a;
 $box-navigation: #2b2b2b;
 
@@ -72,22 +50,13 @@ button {
   padding: 0;
 }
 
-p {
-  margin: 0;
-}
-
 .box {
   border-radius: 10px 10px 0px 0px;
-  color: $secondary-color;
+  color: $font-secondary-color;
   width: 300px;
   height: 250px;
-  padding: 0.8rem 0.8rem 0.8rem 0.8rem;
-  opacity: 0.9;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.8);
-}
-.box-dark {
-  background-color: $box-background;
-  opacity: 0.9;
+  padding: 0.8rem;
+  background-color: $box-background-color;
 }
 .box__navbar {
   display: flex;
@@ -102,39 +71,43 @@ p {
   border-radius: 10px;
 }
 .box__navbar__url {
-  margin: 0px;
-  padding: 2px 25px 2px 25px;
-  font-size: 11px;
+  margin: 0;
+  padding-top: 2px;
+  padding-right: 25px;
+  padding-bottom: 2px;
+  padding-left: 25px;
+  font-size: $extra-small;
   text-align: center;
   font-family: $fira-sans;
 }
 .box__tabs__list {
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: $box-navigation;
   display: flex;
-  color: white;
+  color: $font-primary-color;
 }
 .box__tabs {
-  margin: 0.5rem 0rem 0.5rem 0rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .box__tab {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem;
-  font-size: 12px;
-  transition: 0.5s;
+  font-size: $extra-small;
+  transition: $transition-time;
   border-radius: 10px 10px 0px 0px;
 }
 .box__experiences {
-  margin: 1rem 0rem 0rem 0rem;
+  margin-top: 1rem;
 }
 
 .clicked {
-  background-color: $box-background;
+  background-color: $box-background-color;
 }
 
-@media (min-width: 319px) /* and (max-width: 425px) */ {
+@media (min-width: 319px) {
   .box__navbar {
     width: 100% !important;
   }
@@ -155,7 +128,34 @@ p {
     flex-grow: 1;
   }
   .box {
-    width: 500px !important;
+    width: 480px !important;
   }
 }
 </style>
+<script setup lang="ts">
+// Vue
+import { ref } from "vue";
+
+// Components
+import AppleIcons from "@/components/Box/AppleIcons.vue";
+import AboutMe from "@/components/Box/Presentation/AboutMe.vue";
+import Education from "@/components/Box/Presentation/Education.vue";
+
+const aboutMe = ref<Boolean>(true);
+const education = ref<Boolean>(false);
+const tabSelected = ref<String>("sobre-mim");
+
+function selectedOption(): void {
+  if(education.value == true) {
+    education.value = false
+    aboutMe.value = true
+  } else {
+    education.value = true
+    aboutMe.value = false
+  }
+}
+
+const url: string = document.documentURI;
+
+
+</script>

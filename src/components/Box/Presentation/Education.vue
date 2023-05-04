@@ -27,21 +27,21 @@
 <script setup lang="ts"></script>
 <style scoped lang="scss">
 // Colors
-@import '@/assets/styles/variables.scss';
+@import '@/assets/styles/_Variables.scss';
 $font-color: #757575;
 $tag-color: #4d89ba;
 $text-color: #ffffff;
 
 .html__text {
   color: $font-color;
-  font-size: 12px;
+  font-size: $extra-small;
   font-family: $fira-sans;
 }
 p {
   margin: 0;
 }
 .children-1 {
-  padding-left: 10px;
+  padding-left: 1rem;
 }
 
 .tag {

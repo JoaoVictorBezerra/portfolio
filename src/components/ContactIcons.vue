@@ -24,6 +24,8 @@ defineProps({
 });
 </script>
 <style scoped lang="scss">
+@import '@/assets/styles/_Variables';
+
 .navbar__icons {
   display: flex;
   gap: 1rem;
@@ -32,6 +34,6 @@ defineProps({
 }
 .navbar__list__icon {
   list-style-type: none;
-  transition: 0.4s;
+  transition: $transition-time;
 }
 </style>
