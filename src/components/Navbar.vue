@@ -34,7 +34,7 @@ import ContactIcons from "./ContactIcons.vue";
   }
 }
 
-@media (min-width: 320px) and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .navbar__list {
     display: none;
   }

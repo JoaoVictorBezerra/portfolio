@@ -141,7 +141,7 @@ import * as CompanyName from "@/models/CompanyModel";
     margin: 2rem 0rem;
   }
 }
-@media (min-width: 320px) and (max-width: 425px) {
+@media screen and (max-width: 576px) {
   .about {
     flex-direction: column;
   }

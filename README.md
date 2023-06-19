@@ -10,7 +10,7 @@ Portfólio
 
 ## Dependências
 - Vue router
-- Pinia
+<!-- - Pinia -->
 - Bootstrap
 
 ## Instalação
